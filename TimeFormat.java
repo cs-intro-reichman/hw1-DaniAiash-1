@@ -13,5 +13,25 @@ public class TimeFormat {
 		// Does the same with the minutes part of the input.
 		int minutes = Integer.parseInt("" + args[0].charAt(3) + args[0].charAt(4));
         // Replace this comment with the rest of your code
-	}
+
+		 String meridiem = "AM";
+
+        if (hours == 0) {
+            hours = 0; 
+        } else if (hours == 12) {
+            meridiem = "PM"; 
+        } else if (hours > 12) {
+            hours -= 12;
+            meridiem = "PM";
+        }
+
+        String newMins;
+        if (minutes < 10) {
+            newMins = "0" + minutes;
+        } else {
+            newMins = String.valueOf(minutes);
+        }
+
+        System.out.println(hours + ":" + newMins + " " + meridiem);
+    }
 }
